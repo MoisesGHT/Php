@@ -1,5 +1,4 @@
 <?php
-
 $people = array(
     array("id" => 1, "name" => "john", "age" => 35),
     array("id" => 2, "name" => "Mary", "age" => 20),
@@ -12,7 +11,7 @@ function createperson($people, $name, $age){
     return $people;
 }
 
-function readPerson($pleople, $id) {
+function readPerson($people, $id) {
     foreach ($people as $person) {
         if ($person["id"] == $id) {
             return $person;
@@ -25,15 +24,15 @@ function updatePerson($person, $id, $name, $age) {
         if ($person["id"] == $id) {
             $person["name"] == $name;
             $person["age"] == $age;
-            return $pleople;
+            return $person;
         }
     }
 }
 
 function deletePerson($people, $id) {
-    foreach ($person as $key => $person) {
+    foreach ($people as $key => $person) {
         if ($person["id"] == $id) {
-            unset($person[$key]);
+            unset($people[$key]);
             return $people;
         }
     }
@@ -41,7 +40,7 @@ function deletePerson($people, $id) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["action"] == "create") {
-        $people = createPerson($pleople, $_POST["name"], $_POST["age"]);
+        $people = createPerson($people, $_POST["name"], $_POST["age"]);
     } elseif ($_POST["action"] == "update") {
         $people = updatePerson($people, $_POST["id"], $_POST["name"], $_POST["age"]);
     } elseif ($_POST["action"] == "delete") {
@@ -69,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <th>Age</th>
             <th>Actions</th>
         </tr>
-        <?php foreach ($people as $person): ?>
+        <?php foreach($people as $person): ?>
             <tr>
                 <td><?php echo $person["id"]; ?></td>
                 <td><?php echo $person["name"]; ?></td>
@@ -78,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form method="post" action="">
                       <input type="hidden" name="id" value="<?php echo $person["id"];?>">
                       <input type="hidden" name="action" value="update">
-                      <input type="hidden" name="name" value="<?php echo $person["name"];?>">
-                      <input type="hidden" name="age" value="<?php echo $person["age"];?>">
+                      <input type="text" name="name" value="<?php echo $person["name"];?>">
+                      <input type="text" name="age" value="<?php echo $person["age"];?>">
                       <button type="submit">Update</button>
                     </form>
                     <form method="post" action="">
