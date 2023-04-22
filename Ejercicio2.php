@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ejercicio2.css">
     <title>CRUD Example</title>
 </head>
 <body>
@@ -74,14 +75,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?php echo $person["name"]; ?></td>
                 <td><?php echo $person["age"]; ?></td>
                 <td>
-                    <form method="post" action="">
+                    <form id="mm" method="post" action="">
                       <input type="hidden" name="id" value="<?php echo $person["id"];?>">
                       <input type="hidden" name="action" value="update">
                       <input type="text" name="name" value="<?php echo $person["name"];?>">
                       <input type="text" name="age" value="<?php echo $person["age"];?>">
                       <button type="submit">Update</button>
                     </form>
-                    <form method="post" action="">
+                    <form id="mm" method="post" action="">
                         <input type="hidden" name="id" value="<?php echo $person["id"]; ?>">
                         <input type="hidden" name="action" value="delete">
                         <button type="submit">Delete</button>
