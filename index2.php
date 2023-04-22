@@ -15,7 +15,7 @@ function createperson($people, $name, $age){
 function readPerson($pleople, $id) {
     foreach ($people as $person) {
         if ($person["id"] == $id) {
-            return $person
+            return $person;
         }
     }
 }
@@ -23,11 +23,30 @@ function readPerson($pleople, $id) {
 function updatePerson($person, $id, $name, $age) {
     foreach ($pleople as &$person) {
         if ($person["id"] == $id) {
-            
+            $person["name"] == $name;
+            $person["age"] == $age;
+            return $pleople;
         }
     }
 }
 
+function deletePerson($people, $id) {
+    foreach ($person as $key => $person) {
+        if ($person["id"] == $id) {
+            unset($person[$key]);
+            return $people;
+        }
+    }
+}
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_POST["action"] == "create") {
+        $people = createPerson($pleople, $_POST["name"], $_POST["age"]);
+    } elseif ($_POST["action"] == "update") {
+        $people = updatePerson($people, $_POST["id"], $_POST["name"], $_POST["age"]);
+    } elseif ($_POST["action"] == "delete") {
+        $people =deletePerson($people, $_POST["id"]);
+    }
+}
 
 ?>
