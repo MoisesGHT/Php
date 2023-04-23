@@ -75,17 +75,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?php echo $person["name"]; ?></td>
                 <td><?php echo $person["age"]; ?></td>
                 <td>
-                    <form id="mm" method="post" action="">
+                    <form method="post" action="">
                       <input type="hidden" name="id" value="<?php echo $person["id"];?>">
                       <input type="hidden" name="action" value="update">
                       <input type="text" name="name" value="<?php echo $person["name"];?>">
                       <input type="text" name="age" value="<?php echo $person["age"];?>">
                       <button type="submit">Update</button>
                     </form>
-                    <form id="mm" method="post" action="">
+                    <form class="mm" method="post" action="">
                         <input type="hidden" name="id" value="<?php echo $person["id"]; ?>">
                         <input type="hidden" name="action" value="delete">
-                        <button type="submit">Delete</button>
+                        <button id="delet" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
